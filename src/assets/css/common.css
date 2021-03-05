@@ -1,0 +1,48 @@
+/* iconfont 在线引用 */
+@import url('//at.alicdn.com/t/font_2172785_ugcscqrfga.css');
+.content{
+    margin-left: 320px;
+    padding: 0 25px;
+}
+
+@media (max-width: 767px) {
+    .content{
+        margin: 0;
+    }
+    .container-fluid{
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px){
+    .container-fluid{
+        width: 85%;
+    }
+}
+
+.container-fluid{
+    width: auto !important;
+}
+
+.content-container{
+    padding: 30px 0;
+    
+}
+.relative{
+    position: relative;
+}
+.absolute{
+    position: absolute;
+}
+.disable{
+    color: #8c8c8c;
+    text-align: center !important;
+}
+::selection {
+    background:#d45603; 
+    color:#FFF;
+}
+
+.ql-editor {
+    line-height: 2;
+}
