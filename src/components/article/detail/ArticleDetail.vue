@@ -1,9 +1,7 @@
 <template>
     <div>
         <img-preview :visible="zoom" :src="src" @show="displayPreview"></img-preview>
-        <headnav></headnav>
-        <b-container fluid class="content">
-            <div class="article-container ql-container ql-snow" style="border:none">
+        <div class="article-container ql-container ql-snow" style="border:none">
                 <h1>
                     <router-link to="#">使用 Node.js 定制你的技术雷达：上篇</router-link>
                 </h1>
@@ -58,25 +56,15 @@
                         <span class="disable">评论功能暂时关闭,Sorry啦~</span>
                     </div>
                 </div>
-            </div>
-        </b-container>
-        <sidebar></sidebar>
-        <footnav></footnav>
+        </div>
     </div>
 </template>
 
 <script>
-import sidebar from 'components/public/sidebar'
-import footnav from 'components/public/footer'
-import aboutme from 'components/public/aboutme'
-import headnav from 'components/public/header'
 import imgpreview from 'components/public/img-preview'
 export default {
     name: 'articleDetail',
     components: {
-        sidebar,
-        footnav,
-        headnav,
         'img-preview':imgpreview
     },
     data: function(){
@@ -110,14 +98,6 @@ export default {
             console.log(res.data);
             this.html = res.data.article.content;
         })
-        // let ajax = new XMLHttpRequest();
-        // ajax.open('GET',`http://localhost:8081/articles/${id}`);
-        // ajax.onreadystatechange = ()=> {
-        //     if(ajax.readyState === 4 && ajax.status === 200){
-        //         this.html = JSON.parse(ajax.responseText).data.content;
-        //     }
-        // }
-        // ajax.send();
     }
 }
 </script>

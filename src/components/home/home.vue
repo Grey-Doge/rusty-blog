@@ -2,13 +2,10 @@
     <div>
         <headnav></headnav>
         <b-container fluid class="content">
+            <!-- <loading></loading> -->
             <b-row no-gutters>
                 <b-col>
-                    <heading title="lasteast blog" subTitle="最近更新"></heading>
-                    <article-summary v-if="flag" :articles="articles"></article-summary>
-                    <heading title="About Me" subTitle="关于我"></heading>
-                    <heading title="About RustyLake" subTitle='关于"绣湖"'></heading>
-                    <!-- <aboutme></aboutme> -->
+                    <router-view></router-view>
                 </b-col>
             </b-row>
             
@@ -24,17 +21,13 @@ import headnav from 'components/public/header'
 import sidebar from 'components/public/sidebar'
 import footnav from 'components/public/footer'
 import aboutme from 'components/public/aboutme'
-import articleSummary from 'components/article/summary/summary'
-import heading from 'components/public/heading.vue'
 export default {
     name: 'home',
     components:{
         headnav,
         sidebar,
         footnav,
-        'article-summary': articleSummary,
-        aboutme,
-        heading
+        aboutme
     },
     data: function () {
         return {
@@ -43,7 +36,7 @@ export default {
         }
     },
     mounted: function() {
-        this.getArticles();
+        // this.getArticles();
     },
     methods: {
         getArticles: async function() {

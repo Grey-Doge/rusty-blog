@@ -21,6 +21,8 @@ Vue.use(VueQuillEditor)
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import less from 'less'
 
+import loading from 'components/public/loading/loading.js';
+Vue.use(loading);
 Vue.config.productionTip = false
 // Install BootstrapVue
 Vue.use(BootstrapVue);

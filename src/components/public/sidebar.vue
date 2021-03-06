@@ -24,7 +24,7 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="#">
+                    <router-link to="/tag">
                         文章存档
                     </router-link>
                 </li>
