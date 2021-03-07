@@ -1,13 +1,10 @@
 <template>
     <div>
-        <!-- <b-container fluid class="content">
-            
-        </b-container> -->
         <b-row no-gutters>
             <b-col>
                 <heading title="Blog List" subTitle="就请你当做我已不在~"></heading>
                 <article-summary v-if="flag" :articles="articles"></article-summary>
-                <pagenation :total=50 :pageSize=10 :perPages=8 @current-change="pageChange"></pagenation>
+                <pagenation :total=100 :pageSize=10 :perPages=5 @current-change="pageChange"></pagenation>
             </b-col>
         </b-row>
     </div>

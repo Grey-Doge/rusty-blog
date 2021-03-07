@@ -22,13 +22,11 @@ export default {
         heading
     },
     mounted: function() {
-        let date = new Date('2021-02-09T00:00:00.000+00:00');
-        console.dir(date);
+        this.$loading.show();
         if (this.articles === null || this.articles === undefined) {
-            console.log('props没有传值,请求第一页');
             this.$axios.get('http://localhost:8081/getArticles/1').then((res) => {
-                console.log(res.data);
                 this.articles = res.data.data;
+                this.$loading.close();
             });
         }
     }

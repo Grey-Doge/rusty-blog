@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <img-preview :visible="zoom" :src="src" @show="displayPreview"></img-preview>
         <div class="article-container ql-container ql-snow" style="border:none">
                 <h1>
@@ -93,10 +94,11 @@ export default {
         }
     },
     mounted:function(){
+        this.$loading.show();
         const id = this.$route.params.articleId;
         this.$axios.get('http://localhost:8081/articles/'+id).then((res) => {
-            console.log(res.data);
             this.html = res.data.article.content;
+            this.$loading.close();
         })
     }
 }

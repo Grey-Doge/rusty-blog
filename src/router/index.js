@@ -40,7 +40,8 @@ export default new Router({
       path: '/publish',
       name: 'publish',
       component: Publish
-    }
+    },
+    
   ]
 })
 

@@ -2,7 +2,7 @@
     <div>
         <headnav></headnav>
         <b-container fluid class="content">
-            <!-- <loading></loading> -->
+            
             <b-row no-gutters>
                 <b-col>
                     <router-view></router-view>
@@ -36,7 +36,7 @@ export default {
         }
     },
     mounted: function() {
-        // this.getArticles();
+        
     },
     methods: {
         getArticles: async function() {
