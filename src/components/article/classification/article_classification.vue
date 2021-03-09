@@ -8,275 +8,13 @@
             <div>
                 <h2 class="sub-title">Web技术</h2>
                 <b-row>
-                    <b-col lg="6">
-                        <div  class="sub-page-item">
-                            <h3 class="cate-title">JavaScript<router-link to="/" class="view-all">浏览全部134篇内容</router-link></h3>
+                    <b-col lg="6" v-for="(item, index) in tags" :key = index>
+                        <div  class="sub-page-item" v-if="item.articles.length > 0">
+                            <h3 class="cate-title">{{item.name}}<router-link :to="{path: '/tag/' + item.name}" class="view-all"><span v-if="item.articles.length > 5">浏览全部{{item.count}}篇内容</span></router-link></h3>
                             <ul>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">关于JavaScript继承</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">容器方式使用轻量的 GitLab 低版本</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">如何制作和使用自签名证书</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">你的网站或许不需要前端构建</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">简单策略让前端资源实现高可用</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">使用前端方式挑战 Chrome 小恐龙游戏高分</router-link>
-                                </li>
-                            </ul>
-                        </div>
-                    </b-col>
-                    <b-col lg="6">
-                        <div  class="sub-page-item">
-                            <h3 class="cate-title">CSS<router-link to="/" class="view-all">浏览全部134篇内容</router-link></h3>
-                            <ul>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">关于JavaScript继承</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">容器方式使用轻量的 GitLab 低版本</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">如何制作和使用自签名证书</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">你的网站或许不需要前端构建</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">简单策略让前端资源实现高可用</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">使用前端方式挑战 Chrome 小恐龙游戏高分</router-link>
-                                </li>
-                            </ul>
-                        </div>
-                    </b-col>
-                    <b-col lg="6">
-                        <div  class="sub-page-item">
-                            <h3 class="cate-title">TypeScript<router-link to="/" class="view-all">浏览全部134篇内容</router-link></h3>
-                            <ul>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">关于JavaScript继承</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">容器方式使用轻量的 GitLab 低版本</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">如何制作和使用自签名证书</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">你的网站或许不需要前端构建</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">简单策略让前端资源实现高可用</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">使用前端方式挑战 Chrome 小恐龙游戏高分</router-link>
-                                </li>
-                            </ul>
-                        </div>
-                    </b-col>
-                    <b-col lg="6">
-                        <div  class="sub-page-item">
-                            <h3 class="cate-title">Node.js<router-link to="/" class="view-all">浏览全部134篇内容</router-link></h3>
-                            <ul>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">关于JavaScript继承</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">容器方式使用轻量的 GitLab 低版本</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">如何制作和使用自签名证书</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">你的网站或许不需要前端构建</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">简单策略让前端资源实现高可用</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">使用前端方式挑战 Chrome 小恐龙游戏高分</router-link>
-                                </li>
-                            </ul>
-                        </div>
-                    </b-col>
-                </b-row>
-            </div>
-            <div>
-                <h2 class="sub-title">工程效率</h2>
-                <b-row>
-                    <b-col lg="6">
-                        <div  class="sub-page-item">
-                            <h3 class="cate-title">容器相关<router-link to="/" class="view-all">浏览全部134篇内容</router-link></h3>
-                            <ul>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">容器方式下的轻量仓库与CI 使用方案：Gitea + Drone 基础篇</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">重定向的九种方案及性能比较</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">实时查看容器日志</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">使用 Nginx 构建前端日志统计服务（打点采集）服务</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">阿里云 IP 地理位置库（淘宝IP库）实践（后篇）</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">使用前端方式挑战 Chrome 小恐龙游戏高分</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">更简单的 Traefik 2 使用方式</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">没能躲开的云服务容器网络问题</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">使用 Nginx 容器为 Traefik 配置高性能通用错误页面</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">NUC 折腾笔记 - Linux 系统篇</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">聊聊 GitLab 的CI / CD 功能发展历程</router-link>
-                                </li>
-                            </ul>
-                        </div>
-                    </b-col>
-                    <b-col lg="6">
-                        <div  class="sub-page-item">
-                            <h3 class="cate-title">CSS<router-link to="/" class="view-all">浏览全部134篇内容</router-link></h3>
-                            <ul>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">关于JavaScript继承</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">容器方式使用轻量的 GitLab 低版本</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">如何制作和使用自签名证书</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">你的网站或许不需要前端构建</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">简单策略让前端资源实现高可用</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">使用前端方式挑战 Chrome 小恐龙游戏高分</router-link>
-                                </li>
-                            </ul>
-                        </div>
-                    </b-col>
-                    <b-col lg="6">
-                        <div  class="sub-page-item">
-                            <h3 class="cate-title">TypeScript<router-link to="/" class="view-all">浏览全部134篇内容</router-link></h3>
-                            <ul>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">关于JavaScript继承</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">容器方式使用轻量的 GitLab 低版本</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">如何制作和使用自签名证书</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">你的网站或许不需要前端构建</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">简单策略让前端资源实现高可用</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">使用前端方式挑战 Chrome 小恐龙游戏高分</router-link>
-                                </li>
-                            </ul>
-                        </div>
-                    </b-col>
-                    <b-col lg="6">
-                        <div  class="sub-page-item">
-                            <h3 class="cate-title">Node.js<router-link to="/" class="view-all">浏览全部134篇内容</router-link></h3>
-                            <ul>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">关于JavaScript继承</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">容器方式使用轻量的 GitLab 低版本</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">如何制作和使用自签名证书</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">你的网站或许不需要前端构建</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">简单策略让前端资源实现高可用</router-link>
-                                </li>
-                                <li>
-                                    <span class="item-date">[2020年08月]</span>
-                                    <router-link class="item-link" to="/">使用前端方式挑战 Chrome 小恐龙游戏高分</router-link>
+                                <li v-for="(article, index) in item.articles" :key = index>
+                                    <span class="item-date">[{{new Date(article.date).getFullYear()}}年{{new Date(article.date).getMonth()}}月{{new Date(article.date).getDay()}}日]</span>
+                                    <router-link class="item-link" :to="{path: '/article/' + article._id}">{{article.title}}</router-link>
                                 </li>
                             </ul>
                         </div>
@@ -294,6 +32,24 @@ export default {
     name: 'classification',
     components: {
         heading
+    },
+    data: function() {
+        return {
+            tags: null
+        }
+    },
+    methods: {
+        getTagInfo() {
+            this.$axios.get(`http://localhost:8081/articles/tag`).then((res) => {
+                this.tags = res.data.data;
+                // new Date().get
+                // console.log(`tyof date: ${typeof this.tags[0].articles[0].date}`);
+                console.log(this.tags);
+            })
+        }
+    },
+    mounted: function() {
+        this.getTagInfo();
     }
 }
 </script>

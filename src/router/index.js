@@ -6,6 +6,7 @@ import Publish from 'components/publish/publish'
 import Home from '@/components/home/home'
 import articleSummary from 'components/article/articlesSummary/articlesSummary'
 import Classification from 'components/article/classification/article_classification'
+import tagSearch from 'components/article/tagSearch/tagSearch'
 Vue.use(Router)
 export default new Router({
   // mode: 'history',
@@ -33,6 +34,11 @@ export default new Router({
           path: 'tag',
           name: 'tag',
           component: Classification
+        },
+        {
+          path: 'tag/:name',
+          name: 'tagSearch',
+          component: tagSearch
         }
       ]
     },

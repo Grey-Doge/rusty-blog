@@ -4,7 +4,7 @@
     
     <transition name="img-preview">
         <div :class="['image-preview-wrapper',visible ? '' : '']" v-show="visible" @click.stop="closePreview">
-            <img :src="src" alt="图片加载中..." class="image-preview">
+            <img :src="src" alt="图片挂掉啦~" class="image-preview">
         </div>
     </transition>
 </template>
@@ -32,11 +32,7 @@ export default {
 .img-preview-enter-active ,.img-preview-leave-active {
   transition: opacity .5s ease;
 }
-// .img-preview-leave-active {
-//   transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-// }
-.img-preview-enter, .img-preview-leave-to
-/* .slide-fade-leave-active for below version 2.1.8 */ {
+.img-preview-enter, .img-preview-leave-to {
   opacity: 0;
   pointer-events:none;
 }

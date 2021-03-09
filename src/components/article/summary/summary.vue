@@ -18,13 +18,13 @@
             <div class="article-summary-description">
                 {{item.summary}}
             </div>
-            <router-link to="#">阅读全文</router-link>
+            <router-link :to="{path:'/article/'+item._id}">阅读全文</router-link>
         </div>
         <div class="atricle-summary-tag">
             <i class="iconfont icon-biaoqian"></i>
-            <span><router-link to="#">JavaScript</router-link></span>，
-            <span><router-link to="#">ECMAScript</router-link></span>，
-            <span><router-link to="#">FrontEnd</router-link></span>
+            <span v-for="(tag, index) in item.classification" :key="index">
+                <router-link to="#">{{tag}}</router-link>,
+            </span>
         </div>
     </div>
     

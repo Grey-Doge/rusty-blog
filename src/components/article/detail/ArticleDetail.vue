@@ -78,11 +78,9 @@ export default {
     methods: {
         ZoomPic: function(event) {
             this.zoom = !this.zoom;
-            console.log(event.target.currentSrc);
             this.src = event.target.currentSrc;
         },
         displayPreview: function(value) {
-            console.log("value = "+value);
             this.zoom = value;
         },
         PreviewImg: function(e){
