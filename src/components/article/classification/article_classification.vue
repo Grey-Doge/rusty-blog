@@ -40,11 +40,11 @@ export default {
     },
     methods: {
         getTagInfo() {
+            this.$loading.show();
             this.$axios.get(`http://localhost:8081/articles/tag`).then((res) => {
                 this.tags = res.data.data;
-                // new Date().get
-                // console.log(`tyof date: ${typeof this.tags[0].articles[0].date}`);
                 console.log(this.tags);
+                this.$loading.close();
             })
         }
     },

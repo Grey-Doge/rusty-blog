@@ -2,10 +2,14 @@
   <div class="cover-container d-none d-md-block ">
       <div class="cover-image">
         <div class="avatar">
-
-            <img class="avatar-img" src="../../assets/avatar.jpg" alt="">
+            <img class="avatar-img" src="../../assets/avatar.jpg" alt="" @mouseover="getEl" @mouseleave="showPopover = false">
             <p class="author-name">绣湖</p>
         </div>
+        <transition name="fade">
+            <div class="popover-wrapper" v-if="showPopover">
+                <img src="../../assets/img/二维码.png" alt="">
+            </div>
+        </transition>
         <div class="nav-item">
             <ul>
                 <li>
@@ -43,18 +47,74 @@
         </div>
         
       </div>
-      
   </div>
 </template>
 
 <script>
 export default {
-    name: 'SideBar'
+    name: 'SideBar',
+    methods: {
+        getEl(event) {
+            console.log(`X为:${event.x}`);
+            console.log(`Y为:${event.y}`);
+            console.log(`screenX为:${event.screenX}`);
+            console.log(`screenY为:${event.screenY}`);
+            console.log(`offsetX为:${event.offsetX}`);
+            console.log(`offsetY为:${event.offsetY}`);
+            console.log(`pageX为:${event.pageX}`);
+            console.log(`pageY为:${event.pageY}`);
+            
+            console.log(event);
+            this.showPopover = true;
+        }
+    },
+    data: function() {
+        return {
+            showPopover: false,
+            popOver: {
+                top: 0,
+                triangle_top: 0,
+                
+            }
+        }
+    }
 }
 </script>
 
 <style lang="less" scoped>
 @import url('../../assets/css/common.css');
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.popover-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 90px;
+    left: -20px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #fff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    filter: drop-shadow(-3px 0px 1px #EFEFEF);
+}
+.popover-wrapper{
+    position: fixed;
+    top: 227px;
+    left: 220px;
+    width: auto;
+    height: auto;
+    z-index: 999;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 0px 6px 3px #EFEFEF;
+    img {
+        width: 200px;
+        height: 200px;
+    }
+}
 .cover-container{
     font-size: 14px;
     overflow: hidden;
@@ -87,6 +147,7 @@ export default {
             display: block;
             margin: 30px 0 20px 0;
             box-shadow: 0 3px 8px #B0AFAF;
+            cursor: pointer;
         }
         .author-name{
             font-size: 18px;

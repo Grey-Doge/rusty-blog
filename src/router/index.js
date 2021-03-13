@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import ArticleDetail from 'components/article/detail/ArticleDetail'
 import Articles from 'components/article/articles/articles'
-import Publish from 'components/publish/publish'
+import NotFound from 'components/public/notfound'
 import Home from '@/components/home/home'
 import articleSummary from 'components/article/articlesSummary/articlesSummary'
 import Classification from 'components/article/classification/article_classification'
@@ -43,10 +43,10 @@ export default new Router({
       ]
     },
     {
-      path: '/publish',
-      name: 'publish',
-      component: Publish
-    },
+      path: '*',
+      name: '404',
+      component: NotFound
+    }
     
   ]
 })

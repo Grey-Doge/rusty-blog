@@ -18,36 +18,55 @@
             </b-col>
         </b-row>
         <article-summary  :articles="articles"></article-summary>
+        <b-row>
+            <b-col lg="12">
+                <pagenation :total="count" :pageSize=5 :perPages=5 @current-change="pageChange"></pagenation>
+            </b-col>
+        </b-row>
     </div>
 </template>
 
 <script>
 import heading from 'components/public/heading'
 import articleSummary from 'components/article/summary/summary'
+import pagenation from 'components/public/pagnation'
 export default {
     name: 'TagSearch',
     components: {
         heading,
-        'article-summary': articleSummary
+        'article-summary': articleSummary,
+        pagenation
     },
     data: function() {
         return {
             tagName: '',
-            articles: null
+            articles: null,
+            current_page:1,
+            count: 0
         }
     },
     methods: {
-        getTagInfo(name) {
-            this.$axios.get(`http://localhost:8081/articles/tag?name=${this.tagName}`).then((res) => {
+        getTagInfo() {
+            this.$loading.show();
+            this.$axios.get(`http://localhost:8081/articles/tag?name=${this.tagName}&page=${this.current_page}`).then((res) => {
                 this.articles = res.data.data.articles;
-                // console.log(res.data);
+                this.count = res.data.count;
+                
+            }).catch((err) => {
+                console.log(`请求错误: ${err}`)
+                this.$router.push('/404');
+            }).finally(() => {
+                this.$loading.close();
             })
+        },
+        pageChange(current_page) {
+            this.current_page = current_page;
+            this.getTagInfo();
         }
     },
     mounted: function() {
         
         this.tagName = this.$route.params.name;
-        console.log(`name : ${this.tagName}`);
         this.getTagInfo(this.tagName);
     }
 }

@@ -1,7 +1,7 @@
 <template>
     <div>
         <headnav></headnav>
-        <b-container fluid class="content">
+        <b-container fluid class="content" @mouseenter="showPopover = true" @mouseleave="showPopover = false">
             
             <b-row no-gutters>
                 <b-col>
@@ -12,6 +12,10 @@
         </b-container>
         <sidebar></sidebar>
         <footnav></footnav>
+        <!-- <transition name="fade">
+            <div class="popover-wrapper" v-if="showPopover">
+            </div>
+        </transition> -->
     </div>
     
 </template>
@@ -32,7 +36,8 @@ export default {
     data: function () {
         return {
             flag: false,
-            articles: null
+            articles: null,
+            showPopover: false
         }
     },
     mounted: function() {
@@ -62,6 +67,33 @@ export default {
 </script>
 
 <style>
-    
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+.popover-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 45px;
+    left: -20px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #fff;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    filter: drop-shadow(-3px 0px 1px #EFEFEF);
+}
+.popover-wrapper{
+    position: fixed;
+    top: 165px;
+    left: 240px;
+    width: 100px;
+    height: 100px;
+    z-index: 999;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 0px 6px 3px #EFEFEF;
+}
 
 </style>

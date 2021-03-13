@@ -2,7 +2,8 @@
     <div>
         
         <img-preview :visible="zoom" :src="src" @show="displayPreview"></img-preview>
-        <div class="article-container ql-container ql-snow" style="border:none">
+        
+        <div class="article-container" style="border:none">
                 <h1>
                     <router-link to="#">使用 Node.js 定制你的技术雷达：上篇</router-link>
                 </h1>
@@ -21,22 +22,20 @@
                         8553字
                     </span>
                 </div>
-                <div class="ql-editor">
+                <div class="ql-container ql-snow">
+                    <div class="ql-editor" v-html="html" @click.stop="PreviewImg($event)">
+                    </div>
+                </div>
+                <!-- <div class="ql-editor">
                     <div v-html="html" class="rich-text" @click.stop="PreviewImg($event)">
 
                     </div>
-                </div>
+                </div> -->
                 
                 <div class="meta-box">
                     <i class="iconfont icon-biaoqian"></i>
-                    <router-link to="#">
-                        <span class="tag">Nginx,</span>
-                    </router-link>
-                    <router-link to="#">
-                        <span class="tag">Docker,</span>
-                    </router-link>
-                    <router-link to="#">
-                        <span class="tag">Linux/Mac</span>
+                    <router-link :to="{path: '/tag/' + item.name}" v-for="(item, index) in article.classification" :key="index">
+                        <span class="tag">{{item.name}},</span>
                     </router-link>
                 </div>
                 <div class="meta-box-wrapper relative">
@@ -72,7 +71,8 @@ export default {
         return{
             html: ``,
             zoom: false,
-            src: ''
+            src: '',
+            article: {}
         }
     },
     methods: {
@@ -91,23 +91,29 @@ export default {
             return;
         }
     },
-    mounted:function(){
+    mounted:async function(){
         this.$loading.show();
         const id = this.$route.params.articleId;
-        this.$axios.get('http://localhost:8081/articles/'+id).then((res) => {
+        await this.$axios.get('http://localhost:8081/articles/'+id).then((res) => {
+            this.article = res.data.article;
             this.html = res.data.article.content;
             this.$loading.close();
+        }).catch((err) => {
+            console.log(`请求错误: ${err}`)
+            this.$router.push('404');
         })
     }
 }
 </script>
 
 <style lang="less" scoped>
-
+.ql-container.ql-snow {
+    border: none;
+    font-size: 1em;
+}
 .article-container{
     font-size: 14px;
     text-align: start;
-    
     h1{
         margin: 20px 0;
         color: #e95420;

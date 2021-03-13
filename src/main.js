@@ -9,14 +9,14 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'style/common.css'
 import 'highlight.js/styles/vs2015.css'; // 代码高亮样式
 // 引入vue-quill-editor
-import VueQuillEditor from 'vue-quill-editor'
+// import VueQuillEditor from 'vue-quill-editor'
 
 // vue-quill-editor的相关样式
 import 'quill/dist/quill.core.css'
 import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
-// 开启vue-quill-editor插件
-Vue.use(VueQuillEditor)
+// // 开启vue-quill-editor插件
+// Vue.use(VueQuillEditor)
 
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import less from 'less'

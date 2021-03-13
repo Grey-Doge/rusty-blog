@@ -1,13 +1,17 @@
 <template>
 <div>
     <div class="article-summary-container" v-for="(item, index) in articles" :key="index">
-        <h2 class="atricle-summary-title">
-            <router-link :to="{path:'/article/'+item._id}">{{item.title}}</router-link>
-        </h2>
+        <b-row>
+            <b-col lg="12">
+                <h2 class="atricle-summary-title">
+                    <router-link :to="{path:'/article/'+item._id}">{{item.title}}</router-link>
+                </h2>
+            </b-col>
+        </b-row>
         <div class="meta-box">
             <span>
                 <i class="iconfont icon-riqi"></i>
-                2020年10月04日
+                {{new Date(item.date).getFullYear()}}年{{new Date(item.date).getMonth()}}月{{new Date(item.date).getDay()}}日
             </span>
             <span>
                 <i class="iconfont icon-taolun"></i>
@@ -23,7 +27,8 @@
         <div class="atricle-summary-tag">
             <i class="iconfont icon-biaoqian"></i>
             <span v-for="(tag, index) in item.classification" :key="index">
-                <router-link to="#">{{tag}}</router-link>,
+                <router-link :to="{path: '/tag/' + tag}">{{tag}}</router-link>
+                <span v-if="index < item.classification.length - 1">,</span>
             </span>
         </div>
     </div>
@@ -70,6 +75,8 @@ export default {
         }
     }
     .atricle-summary-tag{
+        display: flex;
+
         span{
             margin-right: 3px;
             text-decoration: underline;
