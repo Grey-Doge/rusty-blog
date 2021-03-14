@@ -67,10 +67,10 @@ export default {
 </script>
 
 <style>
-.fade-enter-active, .fade-leave-active {
+/* .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to {
   opacity: 0;
 }
 .popover-wrapper::after {
@@ -94,6 +94,6 @@ export default {
     background: #fff;
     border-radius: 4px;
     box-shadow: 0px 0px 6px 3px #EFEFEF;
-}
+} */
 
 </style>

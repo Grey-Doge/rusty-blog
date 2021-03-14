@@ -17,11 +17,6 @@ export default {
     methods: {
 
     },
-    watch: {
-        show() {
-            console.log(`show值改变为: ${this.show}`);
-        }
-    },
     mounted: function() {
     }
 }
