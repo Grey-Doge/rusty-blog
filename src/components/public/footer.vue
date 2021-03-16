@@ -5,15 +5,30 @@
             <span>©2020 <span class="all-rights-reserved-delete">阿小宅宅</span> <span class="all-rights-reserved">绣湖</span> | RustyLake All rights reserved</span>
         </b-col>
         <b-col sm="4" cols="12">
-            <img class="avatar-img" src="../../assets/avatar.jpg" alt="">
+            <pop-over placement="left">
+                <img class="avatar-img" src="../../assets/avatar.jpg" alt="">
+                <img slot="content" class="avatar-img" src="../../assets/avatar.jpg" alt="">
+            </pop-over>
         </b-col>
         <b-col sm="4" cols="12">
             <div class="footer-icon">
                 <router-link to="#">
-                    <i class="iconfont icon-git-copy"></i>
+                    <pop-over placement="top">
+                        <i class="iconfont icon-git-copy"></i>
+                        <div slot="content">
+                            <p>克隆一台win7虚拟机</p>
+                        </div>
+                    </pop-over>
                 </router-link>
                 <router-link to="#">
-                    <i class="iconfont icon-552cd5c76f532"></i>
+                    <pop-over placement="top">
+                        
+                        <i class="iconfont icon-552cd5c76f532"></i>
+                        
+                        <div slot="content">
+                            <p>克隆一台win7虚拟机</p>
+                        </div>
+                    </pop-over>
                 </router-link>
                 <router-link to="#">
                     <i class="iconfont icon-tuite"></i>
@@ -28,12 +43,18 @@
 </template>
 
 <script>
+import popOver from 'components/public/popover/popOver'
 export default {
+    
     name: 'FooterNav',
+    components: {
+        'pop-over': popOver
+    },
     data () {
       return {
       }
     }
+
 }
 </script>
 

@@ -5,7 +5,7 @@
         
         <div class="article-container" style="border:none">
                 <h1>
-                    <router-link to="#">使用 Node.js 定制你的技术雷达：上篇</router-link>
+                    <router-link to="#">{{article.title}}</router-link>
                 </h1>
                 <div class="meta-box">
                     <span>
@@ -107,11 +107,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
+h1,h2,h3,h4,h5,h6 {
+    margin: 25px 0 !important; 
+}
 .ql-container.ql-snow {
     border: none;
+    
     font-size: 1em;
 }
 .article-container{
+    
     font-size: 14px;
     text-align: start;
     h1{
